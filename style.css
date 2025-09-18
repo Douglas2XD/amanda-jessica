@@ -1,0 +1,309 @@
+/* --- CONFIGURAÇÕES GLOBAIS E VARIÁVEIS --- */
+:root {
+    --cor-principal: #808000; /* Verde Oliva */
+    --cor-texto: #333;
+    --cor-fundo-claro: #f9f9f9;
+    --cor-branco: #ffffff;
+    --sombra-suave: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section {
+    padding: 5rem 0;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    color: var(--cor-principal);
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* --- CABEÇALHO E NAVEGAÇÃO --- */
+header {
+    background: var(--cor-branco);
+    box-shadow: var(--sombra-suave);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--cor-principal);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--cor-texto);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--cor-principal);
+}
+
+/* --- SEÇÃO INICIAL (HERO) --- */
+.hero {
+    background: var(--cor-fundo-claro);
+    padding: 4rem 0;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: var(--sombra-suave);
+}
+
+.btn-principal {
+    display: inline-block;
+    background: var(--cor-principal);
+    color: var(--cor-branco);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-principal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(128, 128, 0, 0.3);
+}
+
+/* --- SEÇÃO SOBRE --- */
+.sobre-content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.sobre-content img {
+    width: 40%;
+    border-radius: 10px;
+    box-shadow: var(--sombra-suave);
+}
+
+.sobre-texto {
+    width: 60%;
+}
+.sobre-texto h2 {
+    text-align: left;
+}
+.sobre-texto small {
+    font-weight: 600;
+    color: var(--cor-principal);
+}
+
+/* --- SEÇÃO SERVIÇOS --- */
+#servicos {
+    background-color: var(--cor-fundo-claro);
+}
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+.servico-card {
+    background: var(--cor-branco);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: var(--sombra-suave);
+    transition: transform 0.3s;
+}
+.servico-card:hover {
+    transform: translateY(-10px);
+}
+.servico-card i {
+    font-size: 2.5rem;
+    color: var(--cor-principal);
+    margin-bottom: 1rem;
+}
+
+/* --- SEÇÃO LOCALIZAÇÃO --- */
+#localizacao .endereco {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+.mapa-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporção 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: var(--sombra-suave);
+}
+.mapa-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- SEÇÃO CONTATO --- */
+#contato {
+    background: var(--cor-fundo-claro);
+    text-align: center;
+}
+.contato-info {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.info-item i {
+    font-size: 1.5rem;
+    color: var(--cor-principal);
+}
+.info-item a {
+    font-size: 1.1rem;
+    color: var(--cor-texto);
+    font-weight: 600;
+}
+.info-item a:hover {
+    text-decoration: underline;
+}
+
+/* --- RODAPÉ --- */
+footer {
+    background: var(--cor-principal);
+    color: var(--cor-branco);
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+/* --- BOTÃO WHATSAPP FLUTUANTE --- */
+.whatsapp-flutuante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1001;
+    transition: transform 0.3s;
+}
+.whatsapp-flutuante:hover {
+    transform: scale(1.1);
+}
+
+/* --- RESPONSIVIDADE (CELULARES E TABLETS) --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    .container { padding: 0 1rem; }
+    
+    .nav-links {
+        display: none; /* Em um site mais complexo, aqui entraria um menu hamburguer */
+    }
+
+    .hero-content, .sobre-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-text {
+        order: 2; /* Texto aparece depois da imagem no mobile */
+    }
+    
+    .hero-image {
+        order: 1;
+    }
+
+    .sobre-content img, .sobre-texto {
+        width: 100%;
+    }
+    
+    .sobre-texto h2 {
+        text-align: center;
+    }
+    
+    .contato-info {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
