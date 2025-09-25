@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nome do Advogado - Advocacia & Consultoria</title>
+    
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+    <style>
+        /* --- CONFIGURAÇÕES GLOBAIS E VARIÁVEIS --- */
+:root {
+    --cor-principal: #343a40; /* Grafite/Cinza escuro */
+    --cor-secundaria: #ffffff; /* Branco */
+    --cor-texto: #495057; /* Cinza um pouco mais claro para texto */
+    --cor-fundo-claro: #f8f9fa; /* Cinza bem claro para fundos de seção */
+    --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --fonte-titulo: 'Merriweather', serif;
+    --fonte-corpo: 'Lato', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fonte-corpo);
+    color: var(--cor-texto);
+    line-height: 1.7;
+    background-color: var(--cor-secundaria);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section {
+    padding: 6rem 0;
+}
+
+.section-title {
+    font-family: var(--fonte-titulo);
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--cor-principal);
+    font-weight: 700;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--cor-principal);
+    color: var(--cor-secundaria);
+    padding: 1rem 2.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    border: 2px solid var(--cor-principal);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: var(--cor-principal);
+}
+
+/* --- CABEÇALHO E NAVEGAÇÃO --- */
+.header {
+    background-color: var(--cor-secundaria);
+    box-shadow: var(--sombra-suave);
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: box-shadow 0.3s ease;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--fonte-titulo);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--cor-principal);
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-menu a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--cor-principal);
+    transition: width 0.3s;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--cor-principal);
+}
+
+/* --- SEÇÃO HERO --- */
+.hero {
+    background-color: var(--cor-fundo-claro);
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding-top: 100px; /* Espaço para o header fixo */
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-family: var(--fonte-titulo);
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--cor-principal);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+}
+
+/* --- SERVIÇOS --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: var(--cor-secundaria);
+    border: 1px solid #e9ecef;
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--sombra-suave);
+}
+
+.service-card i {
+    font-size: 3rem;
+    color: var(--cor-principal);
+    margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+    font-family: var(--fonte-titulo);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--cor-principal);
+}
+
+/* --- SOBRE --- */
+#about {
+    background-color: var(--cor-fundo-claro);
+}
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: var(--sombra-suave);
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text .section-title {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.about-text span {
+    display: block;
+    margin-top: 1.5rem;
+    font-weight: 700;
+    color: var(--cor-principal);
+}
+
+/* --- CONTATO --- */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-family: var(--fonte-corpo);
+    font-size: 1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--cor-principal);
+}
+
+.contact-info h3 {
+    font-family: var(--fonte-titulo);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--cor-principal);
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.contact-info i {
+    color: var(--cor-principal);
+    margin-right: 1rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* --- RODAPÉ --- */
+.footer {
+    background-color: var(--cor-principal);
+    color: #adb5bd;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: var(--cor-secundaria);
+    font-size: 1.5rem;
+    margin-left: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #ced4da;
+}
+
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    h1 { font-size: 2.5rem; }
+    .section-title { font-size: 2rem; }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--cor-secundaria);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        gap: 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        padding: 1.5rem 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text .section-title {
+        text-align: center;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">Sua Logo</a>
+                <ul class="nav-menu">
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Assessoria Jurídica de Confiança para Seus Direitos</h1>
+                    <p>Compromisso, seriedade e expertise para garantir a melhor solução para você e sua empresa.</p>
+                    <a href="#contact" class="btn">Agende sua Consulta</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">Áreas de Atuação</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3>Direito Civil</h3>
+                        <p>Soluções para contratos, obrigações, responsabilidade civil, família e sucessões.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Direito Empresarial</h3>
+                        <p>Assessoria completa para empresas, desde a constituição até a resolução de conflitos societários.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-gavel"></i>
+                        <h3>Direito Trabalhista</h3>
+                        <p>Defesa dos direitos de empregados e empregadores, consultoria e atuação em processos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="https://via.placeholder.com/400x400.png/CCCCCC/FFFFFF?text=Foto" alt="Foto do Advogado">
+                    </div>
+                    <div class="about-text">
+                        <h2 class="section-title">Sobre o Dr. [Nome Sobrenome]</h2>
+                        <p>Com mais de 15 anos de experiência, Dr. [Nome] é especialista em [sua principal especialidade], oferecendo um atendimento personalizado e focado em resultados. Sua trajetória é marcada pela ética, transparência e pela busca incansável pela justiça.</p>
+                        <p>Formado pela [Nome da Universidade] e com pós-graduação em [Área], dedica-se a entender as necessidades de cada cliente para construir estratégias jurídicas sólidas e eficazes.</p>
+                        <span>OAB/UF 123.456</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Entre em Contato</h2>
+                <div class="contact-content">
+                    <div class="contact-form">
+                        <form action="#">
+                            <input type="text" name="name" placeholder="Seu Nome" required>
+                            <input type="email" name="email" placeholder="Seu E-mail" required>
+                            <textarea name="message" rows="5" placeholder="Sua Mensagem" required></textarea>
+                            <button type="submit" class="btn">Enviar Mensagem</button>
+                        </form>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Informações do Escritório</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Rua Fictícia, 123, Sala 45, Cidade - UF</p>
+                        <p><i class="fas fa-phone"></i> (XX) 99999-8888</p>
+                        <p><i class="fas fa-envelope"></i> contato@seudominio.com.br</p>
+                        <p><i class="fas fa-clock"></i> Seg a Sex, das 9h às 18h</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Nome do Advogado. Todos os direitos reservados.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
